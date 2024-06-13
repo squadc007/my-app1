@@ -1,0 +1,68 @@
+
+1. Navigate to the directory:
+   cd desktop
+   cd S.Eng
+
+2. Clone the repository:
+   git clone https://github.com/octocat/Hello-World.git
+
+3. Navigate to the cloned repository:
+   cd Hello-World
+
+4. List the contents of the directory:
+   ls
+
+5. View the commit history:
+   git log --oneline
+
+6. Clone another repository:
+   git clone https://github.com/kepher99/Hello-World.git
+
+7. Navigate to the new cloned repository:
+   cd Hello-World
+
+8. Create and switch to a new branch:
+   git checkout -b feature-update
+
+9. Create a new file and add content:
+   echo "This is a new feature" > new-feature.txt
+
+10. Add the new file to staging:
+    git add new-feature.txt
+
+11. Commit the changes:
+    git commit -m "Add new feature"
+
+12. Switch to the master branch (main branch did not exist):
+    git checkout master
+
+13. Merge the new branch into master:
+    git merge feature-update
+
+14. Pull the latest changes from the remote master branch:
+    git pull origin master
+
+15. Attempt to navigate to a non-existent directory:
+    cd new-feature
+
+16. Create and switch to another new branch:
+    git checkout -b resolve-conflict
+
+17. Add and commit changes to resolve conflicts:
+    git add new-feature.txt
+    git commit -m "Resolve conflict in new-feature.txt"
+
+18. Switch back to the master branch:
+    git checkout master
+
+19. Merge the resolve-conflict branch into master:
+    git merge resolve-conflict
+
+20. Open the project in Visual Studio Code:
+    code .
+
+21. Commit additional changes:
+    git commit -m "Add index.html for GitHub Pages"
+
+22. Push the changes to the remote repository:
+    git push origin master
