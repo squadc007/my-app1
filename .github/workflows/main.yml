@@ -1,31 +1,33 @@
-   on:
-     push:
-       branches: [main]
-     pull_request:
-       branches: [main]
+name: CI/CD Pipeline
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-       steps:
-         - name: Checkout code
-           uses: actions/checkout@v2
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-         - name: Set up Node.js
-           uses: actions/setup-node@v2
-           with:
-             node-version: '14'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-         - name: Install dependencies
-           run: npm install
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-         - name: Run tests
-           run: npm test
+      - name: Install dependencies
+        run: npm install
 
-         - name: Deploy to GitHub Pages
-           if: github.ref == 'refs/heads/main'
-           uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./public
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'  # Deploy only on main branch push
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
